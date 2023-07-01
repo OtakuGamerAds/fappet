@@ -11,7 +11,7 @@ import otaku.fappet.api.scripts.user.IScriptFancyWorld;
 @Mixin(ScriptEvent.class)
 public abstract class MixinScriptEvent implements IScriptEvent
 {
-    @Shadow private DataContext context;
+    @Shadow(remap = false) private DataContext context;
     public IScriptFancyWorld fancyWorld;
 
     public IScriptFancyWorld getFancyWorld()

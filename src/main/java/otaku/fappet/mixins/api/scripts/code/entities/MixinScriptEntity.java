@@ -11,7 +11,7 @@ import otaku.fappet.api.scripts.user.IScriptFancyWorld;
 @Mixin(ScriptEntity.class)
 public abstract class MixinScriptEntity <T extends Entity> implements IScriptEntity
 {
-    @Shadow protected T entity;
+    @Shadow(remap = false) protected T entity;
     public IScriptFancyWorld getFancyWorld()
     {
         return new ScriptFancyWorld(this.entity.world);

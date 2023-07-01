@@ -24,7 +24,7 @@ import java.nio.file.StandardCopyOption;
             "required-after:blockbuster;"+
             "required-after:mappet;"+
             "after:aperture;",
-        updateJSON = "https://raw.githubusercontent.com/mchorse/mappet/master/version.json"
+        updateJSON = "https://raw.githubusercontent.com/OtakuGamerAds/fappet/master/version.json"
 )
 public class Fappet
 {
