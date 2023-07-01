@@ -1,4 +1,4 @@
-package otaku.fappet.api.scripts.user;
+package otaku.fappet.mixins.api.scripts.user;
 
 import mchorse.mappet.api.scripts.user.data.ScriptVector;
 

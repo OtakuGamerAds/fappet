@@ -1,4 +1,4 @@
-package otaku.fappet.api.scripts.code;
+package otaku.fappet.mixins.api.scripts.code;
 
 import mchorse.mappet.api.scripts.code.ScriptWorld;
 import mchorse.mappet.api.scripts.user.IScriptWorld;

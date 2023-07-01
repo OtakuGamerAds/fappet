@@ -275,7 +275,7 @@ task scriptingJavadocsJson(type: Exec) {
             "-sourcepath",
             "./src/main/java/",
             "-subpackages",
-            "otaku.fappet.api.scripts.user"
+            "otaku.fappet.mixins.api.scripts.user:otaku.fappet.api.scripts.user"
 
     doLast {
         file("src/main/resources/assets/fappet/docs.json").setText(file("docs.json").text)

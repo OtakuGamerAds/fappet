@@ -1,11 +1,14 @@
 {
   "required": true,
   "compatibilityLevel": "JAVA_8",
-  "package": "otaku.fappet.api.scripts",
+  "package": "otaku.fappet.mixins.api.scripts",
   "refmap": "mixins.fappet.refmap.json",
   "mixinPriority": 1000,
   "mixins": [
-    "code.MixinScriptWorld"
+    "code.entities.MixinScriptEntity",
+    "code.MixinScriptEvent",
+    "code.MixinScriptWorld",
+    "code.MixinScriptServer"
   ],
   "client": [],
   "server": []
