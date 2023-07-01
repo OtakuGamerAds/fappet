@@ -1,0 +1,15 @@
+[
+    {
+        "modid": "fappet",
+        "name": "Fappet",
+        "description": "Addon for Mappet mod",
+        "version": "${version}",
+        "mcversion": "${mcversion}",
+        "url": "https://www.curseforge.com/minecraft/mc-mods/fappet/",
+        "authorList": ["OtakuGamer"],
+        "credits": "McHorse, TorayLife",
+        "logoFile": "",
+        "screenshots": [],
+        "dependencies": []
+    }
+]

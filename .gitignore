@@ -1,0 +1,6 @@
+.gradle/
+.idea/
+build/
+run/
+src/main/resources/assets/mappet/docs.json
+docs.json
