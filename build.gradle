@@ -121,7 +121,7 @@ dependencies {
     // Example of deobfuscating a dependency
     // implementation rfg.deobf('curse.maven:had-enough-items-557549:4543375')
 
-    // Mappet dependencies
+    // Fappet dependencies
     implementation files("run/libs/blockbuster-${project.blockbuster}-${project.mcversion}-dev.jar")
     implementation files("run/libs/metamorph-${project.metamorph}-${project.mcversion}-dev.jar")
     implementation files("run/libs/mclib-${project.mclib}-${project.mcversion}-dev.jar")
@@ -236,6 +236,55 @@ tasks.named("processIdeaSettings").configure {
     dependsOn("injectTags")
 }
 
+/* Additional tasks */
+
+/* Task to create docs.json */
+java {
+    toolchain {
+        languageVersion.set(JavaLanguageVersion.of(8))
+        vendor.set(JvmVendorSpec.AZUL)
+    }
+}
+
+def getJavaToolchainLauncher() {
+    return javaToolchains.launcherFor {
+        languageVersion.set(JavaLanguageVersion.of(8))
+        vendor.set(JvmVendorSpec.AZUL)
+    }
+}
+
+task scriptingJavadocs(type: Javadoc) {
+    source = sourceSets.main.allJava
+
+    include "otaku/fappet/api/scripts/user/**"
+}
+
+task scriptingJavadocsJson(type: Exec) {
+    // Writing gradle tasks is PAIN, if you'll ever would need to run this, clone and build:
+    // https://github.com/mchorse/jsonDoclet
+
+    // Rename it to jsonDoclet.jar, and place it in the run/ folder
+    def javaLauncher = getJavaToolchainLauncher().get()
+    def javaInstallationPath = javaLauncher.getMetadata().getInstallationPath().getAsFile().toPath()
+    def javadocPath = javaInstallationPath.resolve("bin").resolve("javadoc")
+    executable javadocPath.toFile()
+    args "-doclet",
+            "mchorse.utils.doclets.JsonDoclet",
+            "-docletpath",
+            "./run/jsonDoclet.jar",
+            "-sourcepath",
+            "./src/main/java/",
+            "-subpackages",
+            "otaku.fappet.api.scripts.user"
+
+    doLast {
+        file("src/main/resources/assets/fappet/docs.json").setText(file("docs.json").text)
+    }
+}
+
+tasks.processResources.dependsOn(scriptingJavadocsJson)
+
+/* Task to open the build/libs directory in Explorer */
 tasks.register('openBuiltJarsDir', Exec) {
     group = 'build'
     description = 'Opens the build/libs directory in Explorer'

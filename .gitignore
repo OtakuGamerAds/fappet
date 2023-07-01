@@ -2,5 +2,5 @@
 .idea/
 build/
 run/
-src/main/resources/assets/mappet/docs.json
+src/main/resources/assets/fappet/docs.json
 docs.json

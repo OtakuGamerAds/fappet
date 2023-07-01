@@ -7,6 +7,13 @@ import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
+
 @Mod(
         modid = Fappet.MODID,
         name = Fappet.NAME,
@@ -23,9 +30,12 @@ public class Fappet
 {
     public static final String MODID = Tags.MOD_ID;
     public static final String NAME = Tags.MOD_NAME;
-    public static final String VERSION = "@MOD_VERSION@";
+    public static final String VERSION = Tags.MOD_VERSION;
 
-    @SidedProxy(clientSide = "otaku.fappet.ClientProxy", serverSide = "otaku.fappet.ServerProxy")
+    @SidedProxy(
+            clientSide = "otaku.fappet.ClientProxy",
+            serverSide = "otaku.fappet.ServerProxy"
+    )
     public static IProxy proxy;
 
     @EventHandler
@@ -38,6 +48,22 @@ public class Fappet
     public void init(FMLInitializationEvent event)
     {
         MinecraftForge.EVENT_BUS.register(new otaku.fappet.EventHandler());
+
+        /* Copy docs.json resources to Mappet's documentations config folder */
+        try
+        {
+            Path destination = Paths.get("config", "mappet", "documentation", "extra", "fappet_docs.json");
+            InputStream sourceStream = this.getClass().getResourceAsStream("/assets/fappet/docs.json");
+
+            Files.createDirectories(destination.getParent()); // Ensure directories exist
+            Files.copy(sourceStream, destination, StandardCopyOption.REPLACE_EXISTING);
+
+            sourceStream.close();
+        }
+        catch (IOException e)
+        {
+            e.printStackTrace();
+        }
     }
 
     public interface IProxy {

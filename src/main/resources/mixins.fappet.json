@@ -5,8 +5,7 @@
   "refmap": "mixins.fappet.refmap.json",
   "mixinPriority": 1000,
   "mixins": [
-    "MixinScriptWorld",
-    "MixinScriptEvent"
+    "code.MixinScriptWorld"
   ],
   "client": [],
   "server": []
