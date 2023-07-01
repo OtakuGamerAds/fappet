@@ -1,8 +1,10 @@
 package otaku.fappet;
 
-public class ServerProxy implements Fappet.IProxy {
+public class ServerProxy implements Fappet.IProxy
+{
     @Override
-    public void preInit() {
+    public void preInit()
+    {
         // server-side initialization code here, if any
     }
 }

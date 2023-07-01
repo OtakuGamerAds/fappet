@@ -9,7 +9,8 @@ import otaku.fappet.api.scripts.code.ScriptFancyWorld;
 import otaku.fappet.api.scripts.user.IScriptFancyWorld;
 
 @Mixin(ScriptServer.class)
-public abstract class MixinScriptServer implements IScriptServer {
+public abstract class MixinScriptServer implements IScriptServer
+{
     @Shadow private MinecraftServer server;
 
     public IScriptFancyWorld getFancyWorld(int dimension)

@@ -1,8 +1,10 @@
 package otaku.fappet;
 
-public class ClientProxy implements Fappet.IProxy {
+public class ClientProxy implements Fappet.IProxy
+{
     @Override
-    public void preInit() {
+    public void preInit()
+    {
         ClientHandler.registerMessages();
     }
 }

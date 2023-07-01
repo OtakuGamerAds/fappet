@@ -66,7 +66,8 @@ public class Fappet
         }
     }
 
-    public interface IProxy {
+    public interface IProxy
+    {
         void preInit();
     }
 }
