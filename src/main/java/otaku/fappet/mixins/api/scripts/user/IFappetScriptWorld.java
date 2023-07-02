@@ -25,6 +25,8 @@ public interface IFappetScriptWorld
      */
     List<ScriptVector> getLoadedCommandBlocks();
 
+    /* Moved Methods from Mappet */
+
     /**
      * Fill a 3D area with a block with a delay (for huge areas).
      *
