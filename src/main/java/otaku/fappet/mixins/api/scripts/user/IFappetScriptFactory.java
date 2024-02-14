@@ -1,5 +1,9 @@
 package otaku.fappet.mixins.api.scripts.user;
 
+import mchorse.mappet.api.scripts.user.data.ScriptVector;
+import mchorse.mappet.api.scripts.user.nbt.INBTCompound;
+import mchorse.metamorph.api.morphs.AbstractMorph;
+
 public interface IFappetScriptFactory
 {
     /**
@@ -29,4 +33,45 @@ public interface IFappetScriptFactory
      * @return True if the text contains Arabic letters
      */
     public boolean containsArabic(String text);
+
+    /**
+     * adds a body part to a morph
+     *
+     * <pre>{@code
+     *  function main(c)
+     * {
+     *     var emptyMorph = mappet.createMorph('{Settings:{Hands:1b},Name:"blockbuster.empty"}');
+     *     var blockMorph = mappet.createMorph("{Meta:0b,Block:\"minecraft:stone\",Name:\"block\"}");
+     *
+     *     var emptyMorphWithBlockMorphBodyPart = mappet.addBodyPart(
+     *         emptyMorph, //baseMorph
+     *         blockMorph, //partMorph
+     *         "head", //limbName
+     *         mappet.vector(0, -2, 0), //translate
+     *         mappet.vector(1, 2, 1), //scale
+     *         mappet.vector(0, 0, 0), //rotate
+     *         true, //enabled
+     *         true, //animated
+     *         false //use target
+     *     )
+     *
+     *     c.getSubject().setMorph(emptyMorphWithBlockMorphBodyPart)
+     * }
+     * }</pre>
+     *
+     * @return the base morph with the body part
+     */
+    public AbstractMorph addBodyPart(AbstractMorph baseMorph, AbstractMorph partMorph, String limbName, ScriptVector translate, ScriptVector scale, ScriptVector rotate, boolean animate, boolean enabled, boolean useTarget);
+
+    /**
+     * adds a body part to a morph
+     *
+     * <pre>{@code
+     *  var currentMorph = c.getSubject().getMorph();
+     *  c.send(mappet.getMorphData(currentMorph));
+     * }</pre>
+     *
+     * @return the base morph with the body part
+     */
+    public INBTCompound getMorphData(AbstractMorph morph);
 }
