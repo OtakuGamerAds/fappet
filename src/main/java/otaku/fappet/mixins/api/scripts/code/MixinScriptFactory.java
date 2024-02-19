@@ -4,6 +4,7 @@ import mchorse.mappet.api.scripts.code.ScriptFactory;
 import mchorse.mappet.api.scripts.code.nbt.ScriptNBTCompound;
 import mchorse.mappet.api.scripts.user.IScriptFactory;
 import mchorse.mappet.api.scripts.user.data.ScriptVector;
+import mchorse.mappet.api.scripts.user.mappet.IMappetStates;
 import mchorse.mappet.api.scripts.user.nbt.INBTCompound;
 import mchorse.metamorph.api.Morph;
 import mchorse.metamorph.api.morphs.AbstractMorph;
@@ -12,6 +13,7 @@ import mchorse.metamorph.bodypart.BodyPartManager;
 import mchorse.metamorph.bodypart.IBodyPartProvider;
 import net.minecraft.nbt.NBTTagCompound;
 import org.spongepowered.asm.mixin.Mixin;
+import otaku.fappet.api.scripts.code.fappet.FappetArrayStates;
 import otaku.fappet.utils.Arabic;
 
 import javax.vecmath.Vector3f;
@@ -80,5 +82,9 @@ public abstract class MixinScriptFactory implements IScriptFactory
         }
 
         return new ScriptNBTCompound(tag);
+    }
+
+    public FappetArrayStates getArrayState(IMappetStates states, String stateName) {
+        return new FappetArrayStates(states, stateName);
     }
 }

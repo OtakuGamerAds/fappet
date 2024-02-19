@@ -1,8 +1,10 @@
 package otaku.fappet.mixins.api.scripts.user;
 
 import mchorse.mappet.api.scripts.user.data.ScriptVector;
+import mchorse.mappet.api.scripts.user.mappet.IMappetStates;
 import mchorse.mappet.api.scripts.user.nbt.INBTCompound;
 import mchorse.metamorph.api.morphs.AbstractMorph;
+import otaku.fappet.api.scripts.code.fappet.FappetArrayStates;
 
 public interface IFappetScriptFactory
 {
@@ -74,4 +76,19 @@ public interface IFappetScriptFactory
      * @return the base morph with the body part
      */
     public INBTCompound getMorphData(AbstractMorph morph);
+
+    /**
+     * Retrieves a {@link FappetArrayStates} instance for managing array states within scripts. This enables scripts to directly manipulate arrays stored in the game's states, offering methods to modify and query array contents dynamically.
+     *
+     * <pre>{@code
+     *  var states = c.getSubject().getStates();
+     *  var nameArrayState = mappet.getArrayState(states, "state_name");
+     *  nameArrayState.push("element");
+     * }</pre>
+     *
+     * @param states The IMappetStates instance from a server, player, or NPC.
+     * @param stateName The name of the state to manage as an array.
+     * @return A {@link FappetArrayStates} object for array manipulation tied to the specified state name.
+     */
+    public FappetArrayStates getArrayState(IMappetStates states, String stateName);
 }
