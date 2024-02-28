@@ -19,6 +19,7 @@ import otaku.fappet.utils.Arabic;
 import javax.vecmath.Vector3f;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.Iterator;
 import java.util.List;
 
 @Mixin(ScriptFactory.class)
@@ -70,6 +71,26 @@ public abstract class MixinScriptFactory implements IScriptFactory
         }
 
         return null;
+    }
+
+    public AbstractMorph removeBodyPart(AbstractMorph morph, String displayName)
+    {
+        if (morph instanceof IBodyPartProvider)
+        {
+            BodyPartManager manager = ((IBodyPartProvider) morph).getBodyPart();
+            Iterator<BodyPart> iterator = manager.parts.iterator();
+
+            while (iterator.hasNext())
+            {
+                BodyPart part = iterator.next();
+                if (part.morph.get().displayName.equals(displayName))
+                {
+                    iterator.remove();
+                }
+            }
+        }
+
+        return morph;
     }
 
     public INBTCompound getMorphData(AbstractMorph morph)

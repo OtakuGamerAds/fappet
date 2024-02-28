@@ -66,6 +66,40 @@ public interface IFappetScriptFactory
     public AbstractMorph addBodyPart(AbstractMorph baseMorph, AbstractMorph partMorph, String limbName, ScriptVector translate, ScriptVector scale, ScriptVector rotate, boolean animate, boolean enabled, boolean useTarget);
 
     /**
+     * removes all body parts from a morph that have a certain display name
+     *
+     * <pre>{@code
+     *  function main(c)
+     * {
+     *     var player = c.getSubject();
+     *     var emptyMorph = mappet.createMorph('{Settings:{Hands:1b},Name:"blockbuster.empty"}');
+     *     var blockMorph = mappet.createMorph("{Meta:0b,DisplayName:"a_stone_block",Block:"minecraft:stone",Name:"block",ForcedSettings:0b}");
+     *
+     *     var emptyMorphWithBlockMorphBodyPart = mappet.addBodyPart(
+     *         emptyMorph, //baseMorph
+     *         blockMorph, //partMorph
+     *         "head", //limbName
+     *         mappet.vector(0, -2, 0), //translate
+     *         mappet.vector(1, 2, 1), //scale
+     *         mappet.vector(0, 0, 0), //rotate
+     *         true, //enabled
+     *         true, //animated
+     *         false //use target
+     *     )
+     *
+     *     player.setMorph(emptyMorphWithBlockMorphBodyPart)
+     *
+     *     c.scheduleScript(60, function (c){
+     *         var emptyMorphWithoutBlockMorphBodyPart = mappet.removeBodyPart(emptyMorphWithBlockMorphBodyPart, "a_stone_block");
+     *         player.setMorph(emptyMorphWithoutBlockMorphBodyPart)
+     *     });
+     * }
+     * }</pre>
+     *
+     * @return the base morph with the body part
+     */
+    public AbstractMorph removeBodyPart(AbstractMorph morph, String displayName);
+    /**
      * adds a body part to a morph
      *
      * <pre>{@code
