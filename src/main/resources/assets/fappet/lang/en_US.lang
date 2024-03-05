@@ -1,1 +1,5 @@
-#
+# TRIGGERS
+mappet.gui.settings.triggers.living_effect=Living: effect applied
+mappet.gui.settings.triggers.descriptions.living_effect=This gets triggered when an effect is applied to a living entity.
+mappet.gui.settings.triggers.variables.living_effect=§6effect§r, the registry name of the effect (e.g., §7minecraft:poison§r) | §6duration§r, the duration of the effect in ticks | §6amplifier§r, the level of the effect.
+
