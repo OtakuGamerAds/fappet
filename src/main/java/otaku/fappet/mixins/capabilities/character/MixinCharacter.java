@@ -9,11 +9,10 @@ import mchorse.metamorph.api.Morph;
 import mchorse.metamorph.api.morphs.AbstractMorph;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
-import org.spongepowered.asm.mixin.Debug;
 import org.spongepowered.asm.mixin.Mixin;
 import mchorse.mappet.capabilities.character.Character;
 import org.spongepowered.asm.mixin.Shadow;
-import otaku.fappet.modules.main.triggers.CharacterAccessor;
+import otaku.fappet.accessors.CharacterAccessor;
 
 import javax.vecmath.Vector3f;
 import java.util.Arrays;

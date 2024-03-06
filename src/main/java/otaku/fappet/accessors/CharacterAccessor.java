@@ -1,4 +1,4 @@
-package otaku.fappet.modules.main.triggers;
+package otaku.fappet.accessors;
 
 import mchorse.mappet.api.scripts.user.data.ScriptVector;
 import mchorse.metamorph.api.morphs.AbstractMorph;

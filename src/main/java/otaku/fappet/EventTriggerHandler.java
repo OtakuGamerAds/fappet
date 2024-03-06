@@ -8,7 +8,7 @@ import net.minecraft.potion.PotionEffect;
 import net.minecraftforge.event.entity.living.PotionEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
-import otaku.fappet.modules.main.triggers.TriggerAccessor;
+import otaku.fappet.accessors.TriggerAccessor;
 
 public class EventTriggerHandler
 {
