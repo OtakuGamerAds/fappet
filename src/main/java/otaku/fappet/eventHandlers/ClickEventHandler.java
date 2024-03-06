@@ -1,4 +1,4 @@
-package otaku.fappet;
+package otaku.fappet.eventHandlers;
 
 import mchorse.mappet.network.Dispatcher;
 import net.minecraftforge.client.event.MouseEvent;

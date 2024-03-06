@@ -6,6 +6,8 @@ import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import otaku.fappet.eventHandlers.ClickEventHandler;
+import otaku.fappet.eventHandlers.EventTriggerHandler;
 
 import java.io.IOException;
 import java.io.InputStream;

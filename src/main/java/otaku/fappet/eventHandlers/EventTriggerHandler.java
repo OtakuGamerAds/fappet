@@ -1,4 +1,4 @@
-package otaku.fappet;
+package otaku.fappet.eventHandlers;
 
 import mchorse.mappet.Mappet;
 import mchorse.mappet.api.triggers.Trigger;
