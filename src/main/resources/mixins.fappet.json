@@ -11,6 +11,8 @@
     "api.scripts.code.MixinScriptWorld",
     "api.scripts.code.entities.MixinScriptEntity",
     "api.scripts.code.entities.MixinScriptNpc",
+    "api.scripts.code.entities.MixinScriptPlayer",
+    "capabilities.character.MixinCharacter",
     "triggers.MixinServerSettings"
   ],
   "client": [],
