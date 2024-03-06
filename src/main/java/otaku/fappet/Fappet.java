@@ -32,6 +32,7 @@ public class Fappet
     public static final String NAME = Tags.MOD_NAME;
     public static final String VERSION = Tags.MOD_VERSION;
     public static EventTriggerHandler eventTriggerHandler;
+    public static ClickEventHandler clickEventHandler;
 
     @SidedProxy(
             clientSide = "otaku.fappet.ClientProxy",
@@ -43,6 +44,7 @@ public class Fappet
     public void preInit(FMLPreInitializationEvent event)
     {
         MinecraftForge.EVENT_BUS.register(eventTriggerHandler = new EventTriggerHandler());
+        MinecraftForge.EVENT_BUS.register(clickEventHandler = new ClickEventHandler());
         proxy.preInit();
     }
 

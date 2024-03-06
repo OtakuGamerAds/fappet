@@ -231,6 +231,17 @@ idea {
     }
 }
 
+// added because IDEA is not allowing DCEVM to run and changing to to zulu,
+// however, hot swapping is still failing
+tasks.withType(JavaExec) {
+    if (name == 'runClient') {
+        javaLauncher.set(javaToolchains.launcherFor {
+            languageVersion.set(JavaLanguageVersion.of(8))
+            vendor.set(JvmVendorSpec.ADOPTOPENJDK)
+        })
+    }
+}
+
 
 tasks.named("processIdeaSettings").configure {
     dependsOn("injectTags")

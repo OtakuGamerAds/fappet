@@ -13,6 +13,7 @@
     "api.scripts.code.entities.MixinScriptNpc",
     "api.scripts.code.entities.MixinScriptPlayer",
     "capabilities.character.MixinCharacter",
+    "network.MixinDispatcher",
     "triggers.MixinServerSettings"
   ],
   "client": [],
