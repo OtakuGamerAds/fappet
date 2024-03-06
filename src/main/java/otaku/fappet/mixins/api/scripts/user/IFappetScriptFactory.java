@@ -125,4 +125,16 @@ public interface IFappetScriptFactory
      * @return A {@link FappetArrayStates} object for array manipulation tied to the specified state name.
      */
     public FappetArrayStates getArrayState(IMappetStates states, String stateName);
+
+    /**
+     * Generates a random UUID
+     *
+     * <pre>{@code
+     *  var randomUUID = mappet.randomUUID();
+     *  c.send("A random UUID is: " + randomUUID);
+     * }</pre>
+     *
+     * @return random UUID
+     */
+    public String randomUUID();
 }

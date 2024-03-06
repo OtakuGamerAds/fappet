@@ -17,10 +17,7 @@ import otaku.fappet.api.scripts.code.fappet.FappetArrayStates;
 import otaku.fappet.utils.Arabic;
 
 import javax.vecmath.Vector3f;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Iterator;
-import java.util.List;
+import java.util.*;
 
 @Mixin(ScriptFactory.class)
 public abstract class MixinScriptFactory implements IScriptFactory
@@ -107,5 +104,10 @@ public abstract class MixinScriptFactory implements IScriptFactory
 
     public FappetArrayStates getArrayState(IMappetStates states, String stateName) {
         return new FappetArrayStates(states, stateName);
+    }
+
+    public String randomUUID()
+    {
+        return UUID.randomUUID().toString();
     }
 }
