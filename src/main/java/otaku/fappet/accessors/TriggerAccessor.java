@@ -6,6 +6,5 @@ public interface TriggerAccessor {
 
     Trigger getLivingEffect();
 
-    Trigger getPlayerClickRight();
-    Trigger getPlayerClickLeft();
+    Trigger getPlayerMouseAction();
 }

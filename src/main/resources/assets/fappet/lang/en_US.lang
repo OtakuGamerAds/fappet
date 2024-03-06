@@ -4,10 +4,6 @@ mappet.gui.settings.triggers.descriptions.living_effect=This gets triggered when
 mappet.gui.settings.triggers.variables.living_effect=§6effect§r, the registry name of the effect (e.g., §7minecraft:poison§r) | §6duration§r, the duration of the effect in ticks | §6amplifier§r, the level of the effect.
 
 # TRIGGERS
-mappet.gui.settings.triggers.player_click_right=Player: click (right)
-mappet.gui.settings.triggers.descriptions.player_click_right=This gets triggered when a player performs a right-click action.
-mappet.gui.settings.triggers.variables.player_click_right=No additional variables.
-
-mappet.gui.settings.triggers.player_click_left=Player: click (left)
-mappet.gui.settings.triggers.descriptions.player_click_left=This gets triggered when a player performs a left-click action.
-mappet.gui.settings.triggers.variables.player_click_left=No additional variables.
+mappet.gui.settings.triggers.player_mouse_action=Player: mouse action
+mappet.gui.settings.triggers.descriptions.player_mouse_action=This gets triggered when a player performs a mouse action, such as pressing or releasing a mouse button, or scrolling the mouse wheel.
+mappet.gui.settings.triggers.variables.player_mouse_action=§6key§r, which mouse action is performed (§7left§r, §7right§r, §middle§r, §7scroll§r) | §6state§r, state for buttons or scroll direction (§7down§r, §7up§r).

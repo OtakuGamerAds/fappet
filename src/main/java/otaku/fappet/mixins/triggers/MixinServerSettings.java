@@ -20,20 +20,15 @@ public abstract class MixinServerSettings implements TriggerAccessor
     public abstract Trigger register(String key, String alias, Trigger trigger);
 
     public Trigger livingEffect;
-    public Trigger playerClickRight;
-    public Trigger playerClickLeft;
+    public Trigger playerMouseAction;
 
     public Trigger getLivingEffect()
     {
         return this.livingEffect;
     }
-    public Trigger getPlayerClickRight()
+    public Trigger getPlayerMouseAction()
     {
-        return this.playerClickRight;
-    }
-    public Trigger getPlayerClickLeft()
-    {
-        return this.playerClickLeft;
+        return this.playerMouseAction;
     }
 
     @Inject(method = "<init>", at = @At("TAIL"), remap = false)
@@ -41,8 +36,7 @@ public abstract class MixinServerSettings implements TriggerAccessor
     {
         this.livingEffect = this.register("living_effect", "living_effect", new Trigger());
 
-        this.playerClickRight = this.register("player_click_right", "player_click_right", new Trigger());
-        this.playerClickLeft = this.register("player_click_left", "player_click_left", new Trigger());
+        this.playerMouseAction = this.register("player_mouse_action", "player_mouse_action", new Trigger());
 
         Mappet.EVENT_BUS.post(new RegisterServerTriggerEvent((ServerSettings) (Object) this));
     }

@@ -1,6 +1,9 @@
 package otaku.fappet.network.server.scripts;
 
-import otaku.fappet.ClickEventHandler;
+import mchorse.mappet.Mappet;
+import mchorse.mappet.api.triggers.Trigger;
+import mchorse.mappet.api.utils.DataContext;
+import otaku.fappet.accessors.TriggerAccessor;
 import otaku.fappet.network.common.scripts.PacketEmptyClick;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
@@ -14,15 +17,16 @@ public class ServerHandlerEmptyClick implements IMessageHandler<PacketEmptyClick
     {
         EntityPlayerMP player = ctx.getServerHandler().player;
         player.getServerWorld().addScheduledTask(() -> {
-            if (message.getKey().equals("left"))
+            DataContext context = new DataContext(player)
+                    .set("key", message.getKey())
+                    .set("state", message.getState());
+
+            Trigger trigger = ((TriggerAccessor) Mappet.settings).getPlayerMouseAction();
+            if (!trigger.isEmpty())
             {
-                ClickEventHandler.queueLeftClickActions(null, player);
-            }
-            else if (message.getKey().equals("right"))
-            {
-                ClickEventHandler.queueRightClickActions(null, player);
+                trigger.trigger(context);
             }
         });
-        return null;
+        return null; // No response packet
     }
 }
