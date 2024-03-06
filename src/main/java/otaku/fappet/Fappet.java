@@ -36,18 +36,11 @@ public class Fappet
     public static EventTriggerHandler eventTriggerHandler;
     public static ClickEventHandler clickEventHandler;
 
-    @SidedProxy(
-            clientSide = "otaku.fappet.ClientProxy",
-            serverSide = "otaku.fappet.ServerProxy"
-    )
-    public static IProxy proxy;
-
     @EventHandler
     public void preInit(FMLPreInitializationEvent event)
     {
         MinecraftForge.EVENT_BUS.register(eventTriggerHandler = new EventTriggerHandler());
         MinecraftForge.EVENT_BUS.register(clickEventHandler = new ClickEventHandler());
-        proxy.preInit();
     }
 
     @EventHandler
@@ -68,10 +61,5 @@ public class Fappet
         {
             e.printStackTrace();
         }
-    }
-
-    public interface IProxy
-    {
-        void preInit();
     }
 }
