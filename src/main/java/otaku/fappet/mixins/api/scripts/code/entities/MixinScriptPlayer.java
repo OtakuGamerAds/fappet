@@ -14,6 +14,17 @@ public abstract class MixinScriptPlayer implements IScriptPlayer
 {
     protected EntityPlayerMP entity = getMinecraftPlayer();
 
+    public void addHungerPoints(int points)
+    {
+        int currentHunger = getHunger();
+        int newHunger = currentHunger + points;
+
+        newHunger = Math.max(0, Math.min(newHunger, 20)); //(0 to 20, as max hunger can’t be changed)
+
+        setHunger(newHunger);
+    }
+
+
     /* HUDs */
     public boolean setupTempHUD(
             String tempId,

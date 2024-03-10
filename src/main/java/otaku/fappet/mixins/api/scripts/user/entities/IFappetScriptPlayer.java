@@ -7,6 +7,15 @@ public interface IFappetScriptPlayer
 {
 
     /**
+     * Adds/removes a hunger point from the player.
+     *
+     * <pre>{@code
+     * c.getSubject().addHungerPoints(-2); //removes a whole hunger piece
+     * }</pre>
+     */
+    public void addHungerPoints(int points);
+
+    /**
      * Displays a temporary HUD to the player.
      *
      * <pre>{@code
