@@ -7,7 +7,9 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import otaku.fappet.api.scripts.code.ScriptFancyWorld;
 import otaku.fappet.api.scripts.user.IScriptFancyWorld;
+import otaku.fappet.mixins.api.scripts.user.entities.IFappetScriptEntity;
 
+/**{@link IFappetScriptEntity}*/
 @Mixin(ScriptEntity.class)
 public abstract class MixinScriptEntity <T extends Entity> implements IScriptEntity
 {

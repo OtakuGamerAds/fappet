@@ -26,11 +26,13 @@ import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Optional;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
+import otaku.fappet.mixins.api.scripts.user.IFappetScriptWorld;
 
 import java.io.File;
 import java.io.IOException;
 import java.util.*;
 
+/**{@link IFappetScriptWorld}*/
 @Mixin(ScriptWorld.class)
 public abstract class MixinScriptWorld implements IScriptWorld
 {

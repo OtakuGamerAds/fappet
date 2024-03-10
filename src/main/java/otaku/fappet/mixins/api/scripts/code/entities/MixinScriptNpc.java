@@ -9,7 +9,9 @@ import mchorse.mappet.api.triggers.blocks.ScriptTriggerBlock;
 import mchorse.mappet.entities.EntityNpc;
 import net.minecraft.util.math.BlockPos;
 import org.spongepowered.asm.mixin.Mixin;
+import otaku.fappet.mixins.api.scripts.user.entities.IFappetScriptNpc;
 
+/**{@link IFappetScriptNpc}*/
 @Mixin(ScriptNpc.class)
 public abstract class MixinScriptNpc implements IScriptNpc
 {

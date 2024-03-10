@@ -14,11 +14,13 @@ import mchorse.metamorph.bodypart.IBodyPartProvider;
 import net.minecraft.nbt.NBTTagCompound;
 import org.spongepowered.asm.mixin.Mixin;
 import otaku.fappet.api.scripts.code.fappet.FappetArrayStates;
+import otaku.fappet.mixins.api.scripts.user.IFappetScriptFactory;
 import otaku.fappet.utils.Arabic;
 
 import javax.vecmath.Vector3f;
 import java.util.*;
 
+/**{@link IFappetScriptFactory}*/
 @Mixin(ScriptFactory.class)
 public abstract class MixinScriptFactory implements IScriptFactory
 {

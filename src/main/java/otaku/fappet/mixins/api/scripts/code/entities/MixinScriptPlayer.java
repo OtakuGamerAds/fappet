@@ -8,7 +8,9 @@ import mchorse.metamorph.api.morphs.AbstractMorph;
 import net.minecraft.entity.player.EntityPlayerMP;
 import org.spongepowered.asm.mixin.Mixin;
 import otaku.fappet.accessors.CharacterAccessor;
+import otaku.fappet.mixins.api.scripts.user.entities.IFappetScriptPlayer;
 
+/**{@link IFappetScriptPlayer}*/
 @Mixin(ScriptPlayer.class)
 public abstract class MixinScriptPlayer implements IScriptPlayer
 {
